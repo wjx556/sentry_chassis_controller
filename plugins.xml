@@ -1,0 +1,9 @@
+<library path="libsentry_chassis_controller">
+  <class name="sentry_chassis_controller/SimpleController"
+         type="sentry_chassis_controller::SimpleController"
+         base_class_type="controller_interface::ControllerBase">
+    <description>
+      Simple template controller for RoboMaster sentry chassis.
+    </description>
+  </class>
+</library>

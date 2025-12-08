@@ -1,0 +1,12 @@
+sentry_chassis_controller:
+  type: sentry_chassis_controller/SimpleController
+  joints: ["wheel_fl", "wheel_fr", "wheel_rl", "wheel_rr", "steer_fl", "steer_fr", "steer_rl", "steer_rr"]
+  gains:
+    wheel_fl:  {p: 1.0, i: 0.0, d: 0.0}
+    wheel_fr:  {p: 1.0, i: 0.0, d: 0.0}
+    wheel_rl:  {p: 1.0, i: 0.0, d: 0.0}
+    wheel_rr:  {p: 1.0, i: 0.0, d: 0.0}
+    steer_fl:  {p: 1.0, i: 0.0, d: 0.0}
+    steer_fr:  {p: 1.0, i: 0.0, d: 0.0}
+    steer_rl:  {p: 1.0, i: 0.0, d: 0.0}
+    steer_rr:  {p: 1.0, i: 0.0, d: 0.0}
