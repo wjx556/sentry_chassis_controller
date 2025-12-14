@@ -1,10 +1,10 @@
 <?xml version="1.0"?>
 <package format="2">
   <name>sentry_chassis_controller</name>
-  <version>0.1.0</version>
-  <description>Template package for RoboMaster sentry chassis controller</description>
-  <maintainer email="you@todo.todo">you</maintainer>
-  <license>MIT</license>
+  <version>0.0.1</version>
+  <description>The sentry_chassis_controller package for steering wheel chassis</description>
+  <maintainer email="user@todo.todo">user</maintainer>
+  <license>BSD</license>
 
   <buildtool_depend>catkin</buildtool_depend>
 
@@ -13,8 +13,14 @@
   <depend>hardware_interface</depend>
   <depend>pluginlib</depend>
   <depend>control_toolbox</depend>
-  <depend>geometry_msgs</depend>
+  <depend>realtime_tools</depend>
   <depend>nav_msgs</depend>
-  <depend>tf</depend>
-  <depend>roslint</depend>
+  <depend>geometry_msgs</depend>
+  <depend>tf2_ros</depend>
+  <depend>tf2_geometry_msgs</depend>
+  <depend>dynamic_reconfigure</depend>
+
+  <export>
+    <controller_interface plugin="${prefix}/plugins.xml"/>
+  </export>
 </package>
