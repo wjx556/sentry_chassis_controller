@@ -1,6 +1,0 @@
-<launch>
-  <rosparam file="$(find sentry_chassis_controller)/config/simple_controller.yaml" command="load"/>
-  <node name="controller_spawner"
-        pkg="controller_manager" type="spawner" output="screen"
-        args="sentry_chassis_controller"/>
-</launch>

@@ -1,0 +1,13 @@
+<launch>
+    <!-- 1. 按照你的要求，直接引用官方提供的启动文件 -->
+    <!-- 这个文件负责：启动 Gazebo、加载 Robot Description、Spawn 机器人模型 -->
+    <include file="$(find rm_description)/launch/sentry.launch" />
+
+    <!-- 2. 加载控制器参数到参数服务器 -->
+    <rosparam file="$(find sentry_chassis_controller)/config/sentry_chassis_controller.yaml" command="load"/>
+
+    <!-- 3. 加载我们的控制器 -->
+    <!-- 注意：sentry.launch 可能已经启动了 joint_state_controller，所以这里我们只加载底盘控制器 -->
+    <node name="sentry_controller_spawner" pkg="controller_manager" type="spawner" respawn="false"
+          output="screen" args="sentry_chassis_controller"/>
+</launch>
