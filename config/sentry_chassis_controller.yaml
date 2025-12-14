@@ -1,0 +1,59 @@
+# 确保加载 joint_state_controller (如果 sentry.launch 没带的话，加上这个保险)
+joint_state_controller:
+  type: "joint_state_controller/JointStateController"
+  publish_rate: 50
+
+sentry_chassis_controller:
+  type: sentry_chassis_controller/SentryChassisController
+  
+  # 物理参数
+  wheel_radius: 0.07625
+  odom_frame_id: "odom"
+  base_frame_id: "base_link"
+  enable_odom_tf: true
+  use_world_frame_control: false
+  max_power: 100.0
+
+  # 定义模组名称，对应下方的配置块
+  module_names: ["left_front", "right_front", "left_back", "right_back"]
+
+  # === 左前轮模组 ===
+  left_front:
+    x_offset: 0.2
+    y_offset: 0.2
+    # 对应你提供的 steer_joints[0] 和 wheel_joints[0]
+    pivot_joint: "left_front_pivot_joint"
+    drive_joint: "left_front_wheel_joint"
+    # PID 参数
+    drive_pid: {p: 5.0, i: 0.01, d: 0.0, i_clamp: 10.0}
+    pivot_pid: {p: 10.0, i: 0.0, d: 0.5, i_clamp: 10.0}
+    
+  # === 右前轮模组 ===
+  right_front:
+    x_offset: 0.2
+    y_offset: -0.2
+    # 对应你提供的 steer_joints[1] 和 wheel_joints[1]
+    pivot_joint: "right_front_pivot_joint"
+    drive_joint: "right_front_wheel_joint"
+    drive_pid: {p: 5.0, i: 0.01, d: 0.0, i_clamp: 10.0}
+    pivot_pid: {p: 10.0, i: 0.0, d: 0.5, i_clamp: 10.0}
+
+  # === 左后轮模组 ===
+  left_back:
+    x_offset: -0.2
+    y_offset: 0.2
+    # 对应你提供的 steer_joints[2] 和 wheel_joints[2]
+    pivot_joint: "left_back_pivot_joint"
+    drive_joint: "left_back_wheel_joint"
+    drive_pid: {p: 5.0, i: 0.01, d: 0.0, i_clamp: 10.0}
+    pivot_pid: {p: 10.0, i: 0.0, d: 0.5, i_clamp: 10.0}
+
+  # === 右后轮模组 ===
+  right_back:
+    x_offset: -0.2
+    y_offset: -0.2
+    # 对应你提供的 steer_joints[3] 和 wheel_joints[3]
+    pivot_joint: "right_back_pivot_joint"
+    drive_joint: "right_back_wheel_joint"
+    drive_pid: {p: 5.0, i: 0.01, d: 0.0, i_clamp: 10.0}
+    pivot_pid: {p: 10.0, i: 0.0, d: 0.5, i_clamp: 10.0}
